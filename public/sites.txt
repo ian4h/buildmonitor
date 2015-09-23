@@ -1,0 +1,4 @@
+http://cwbuecheler.com/web/tutorials/2014/restful-web-app-node-express-mongodb/
+https://orchestrate.io/blog/2014/06/26/build-user-authentication-with-node-js-express-passport-and-orchestrate/
+http://start.jcolemorrison.com/building-an-angular-and-express-app-part-3/
+https://robots.thoughtbot.com/testing-a-phoenix-elixir-json-api
