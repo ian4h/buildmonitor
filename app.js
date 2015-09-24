@@ -4,9 +4,40 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var Sequelize = require('sequelize');
+var LocalStrategy = require('passport-local').Strategy;
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
+
+//orm database setup
+var sequelize = new Sequelize('buildmonitordb', 'admin', 'password',{
+    host: 'localhost',
+    dialect: 'mysql',
+    pool: {
+        max: 5,
+        min: 0,
+        idle: 10000
+    }
+})
+
+var User = sequelize.define('user', {
+    userName: {
+        type: Sequelize.STRING
+    },
+    password: {
+        type: Sequelize.STRING
+    }
+    }, {
+    freezeTableName: true
+});
+
+User.sync({force:true}).then(function(){
+    return User.create({
+        userName: 'admin',
+        password: 'password'
+    })
+});
 
 var app = express();
 
@@ -21,6 +52,44 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+
+//passport login
+var passport = require('passport');
+var expressSession = require('express-session');
+app.use(expressSession({secret: 'mySecretKey', resave: false, saveUninitialized: false}));
+app.use(passport.initialize());
+app.use(passport.session());
+
+passport.serializeUser(function(user, done){
+    console.log("Serializing the user")
+    done(null, user.id);
+});
+passport.deserializeUser(function(id,done){
+    //find user here
+    console.log("Deserializing user here")
+    User.findById(id).then(function(user){
+        done(null, user);
+    })
+});
+
+passport.use('login', new LocalStrategy({
+        passReqToCallback : true
+    },
+    function(req, username, password, done) {
+        User.findOne({where: {userName: username, password: password}}).then(function(user){
+            if(!user){
+                console.log("ERROR >> User not found " + username)
+                return done(null, false, req.flash('message', 'User not found'))
+            }
+            else{
+                console.log("User found, continuing")
+                return done(null, user);
+            }
+        })
+    }));
+
+var flash = require('connect-flash');
+app.use(flash());
 
 app.use('/', routes);
 app.use('/users', users);

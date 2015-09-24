@@ -1,0 +1,10 @@
+<% include header%>
+
+<form method="post" action="/login">
+    <input type="text" name="username" required>
+    <input type="password" name="password" required>
+    <button type="submit"></button>
+</form>
+<% if(message) {%>
+<h2><%=message%>%></h2>
+<%}%>
