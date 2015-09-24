@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var passport = require('passport');
+var model = require('../models');
 
 var isAuthenticated = function(req, res, next){
     if(req.isAuthenticated()){
@@ -15,7 +16,13 @@ router.get('/', isAuthenticated, function(req, res, next) {
   //passport.authenticate('local', {failureRedirect: '/login'})
   //console.log("user >> " + req.user);
   console.log("NEw data *********************")
-  res.render('index', { title: 'Express', message: req.flash('message') });
+    model.Site.findAll().then(function(sites){
+        res.render('index', {
+            title: 'Express',
+            message: req.flash('message'),
+            sites: sites
+        });
+    })
 });
 
 router.get('/login', function(req, res, next){

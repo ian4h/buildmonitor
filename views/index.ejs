@@ -7,6 +7,17 @@
   <body>
     <% include ./header%>
 
-    Main application page
+    <h2>Main application page</h2>
+    <%if(sites){ %>
+      <h3>Guru Instances: </h3>
+      <ul>
+        <% for(var i=0; i<sites.length; i++) { %>
+          <li>
+            <%= sites[i].server %> <%=sites[i].url%> <%=sites[i].version%> <%= sites[i].environment %>
+          </li>
+        <% } %>
+      </ul>
+    <% } %>
+
   </body>
 </html>
