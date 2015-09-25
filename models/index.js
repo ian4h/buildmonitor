@@ -61,9 +61,56 @@ Object.keys(db).forEach(function(modelName) {
 
 db.sequelize = sequelize;
 db.Sequelize = Sequelize;
+//sequelize.sync({force: true})
 
-console.log(db);
-console.log(db.user);
+//db.Site.build({
+//    server: "maple.eeng.dcu.ie",
+//    url: "http://gurudev.dcu.ie/guru",
+//    version: "1.0.65",
+//    environment: "Development"
+//}).save().then(function(site){
+//    console.log("Save site: " + site.server)
+//}).catch(function(err){
+//    console.log("******* ERROR ******* " + err)
+//});
+//
+//db.Site.build({
+//    server: "maple.eeng.dcu.ie",
+//    url: "http://gurutest.dcu.ie/gurutest",
+//    version: "1.0.69",
+//    environment: "Test"
+//}).save().then(function(site){
+//    console.log("Save site: " + site.server)
+//}).catch(function(err){
+//    console.log("******* ERROR ******* " + err)
+//});
+//
+//db.Site.build({
+//    server: "dcuaws.amazon.com",
+//    url: "http://guru.dcu.ie",
+//    version: "1.0.60",
+//    environment: "DCU Production"
+//}).save().then(function(site){
+//    console.log("Save site: " + site.server)
+//}).catch(function(err){
+//    console.log("******* ERROR ******* " + err)
+//});
+//
+//db.Site.build({
+//    server: "mitaws.amazon.com",
+//    url: "http://guru.gmit.ie",
+//    version: "1.0.60",
+//    environment: "GMIT Production"
+//}).save().then(function(site){
+//    console.log("Save site: " + site.server)
+//}).catch(function(err){
+//    console.log("******* ERROR ******* " + err)
+//});
+
+//console.log(db);
+//console.log(db.user);
+
+
 
 module.exports = db;
 

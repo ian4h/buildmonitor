@@ -64,6 +64,10 @@ var model = require('./models');
 var initPassport = require('./passport/init');
 initPassport(passport);
 
+//initiate job
+var job = require('./jobs/sniffer')
+job.start()
+
 //model.Site.sync({force: true}).then(function(){
 //    return model.Site.create({
 //        server: "maple.eeng.dcu.ie",

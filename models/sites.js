@@ -24,7 +24,7 @@ module.exports = function(sequelize, DataTypes){
                 Site.hasMany(model.Stats)
             }
         }
-    })
+    });
 
     return Site
 }
