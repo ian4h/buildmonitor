@@ -4,19 +4,6 @@
 
 var sequelize = require('sequelize')
 
-//var User = sequelize.define('user', {
-//    userName: {
-//        type: Sequelize.STRING
-//    },
-//    password: {
-//        type: Sequelize.STRING
-//    }
-//}, {
-//    freezeTableName: true
-//});
-//
-//module.exports = User
-
 module.exports = function(sequelize, DataTypes){
 
     var User = sequelize.define('User', {
