@@ -66,72 +66,7 @@ initPassport(passport);
 
 //initiate job
 var job = require('./jobs/sniffer')
-job.start()
-
-//model.Site.sync({force: true}).then(function(){
-//    return model.Site.create({
-//        server: "maple.eeng.dcu.ie",
-//        url: "http://gurudev.dcu.ie/guru",
-//        version: "1.0.65",
-//        environment: "Development"
-//    })
-//})
-//model.Site.sync({force: true}).then(function(){
-//    return model.Site.create({
-//        server: "maple.eeng.dcu.ie",
-//        url: "http://gurutest.dcu.ie/gurutest",
-//        version: "1.0.69",
-//        environment: "Test"
-//    })
-//})
-//model.Site.sync({force: true}).then(function(){
-//    return model.Site.create({
-//        server: "dcuaws.amazon.com",
-//        url: "http://guru.dcu.ie",
-//        version: "1.0.60",
-//        environment: "DCU Production"
-//    })
-//})
-//model.Site.sync({force: true}).then(function(){
-//    return model.Site.create({
-//        server: "mitaws.amazon.com",
-//        url: "http://guru.gmit.ie",
-//        version: "1.0.60",
-//        environment: "GMIT Production"
-//    })
-//})
-
-
-
-
-
-//passport.serializeUser(function(user, done){
-//    console.log("Serializing the user")
-//    done(null, user.id);
-//});
-//passport.deserializeUser(function(id,done){
-//    //find user here
-//    console.log("Deserializing user here")
-//    User.findById(id).then(function(user){
-//        done(null, user);
-//    })
-//});
-
-//passport.use('login', new LocalStrategy({
-//        passReqToCallback : true
-//    },
-//    function(req, username, password, done) {
-//        User.findOne({where: {userName: username, password: password}}).then(function(user){
-//            if(!user){
-//                console.log("ERROR >> User not found " + username)
-//                return done(null, false, req.flash('message', 'User not found'))
-//            }
-//            else{
-//                console.log("User found, continuing")
-//                return done(null, user);
-//            }
-//        })
-//    }));
+job.start();
 
 var flash = require('connect-flash');
 app.use(flash());

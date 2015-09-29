@@ -3,6 +3,19 @@
  */
 
 var model = require('../models')
+var http = require('http')
+
+var pingURL = function(site){
+
+    var options = {
+        host: site.url,
+        port: 80,
+        path: '/buildMonitor'
+    };
+
+
+};
+
 
 module.exports = {
 
@@ -26,6 +39,7 @@ module.exports = {
                     });
                 })
             })
-        }, 5000)
+        }, 5000);
     }
+
 }
