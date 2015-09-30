@@ -61,46 +61,54 @@ Object.keys(db).forEach(function(modelName) {
 
 db.sequelize = sequelize;
 db.Sequelize = Sequelize;
-//sequelize.sync({force: true})
 
-//db.Site.build({
+//bootstrap some data
+//sequelize.sync({force: true})
+//db.User.create({
+//    username: 'admin',
+//    password: 'password'
+//}).then(function(user){
+//    console.log("User Created >> " + user.username)
+//})
+//
+//db.Sites.build({
 //    server: "maple.eeng.dcu.ie",
 //    url: "http://gurudev.dcu.ie/guru",
-//    version: "1.0.65",
-//    environment: "Development"
+//    environment: "Development",
+//    status: "up"
 //}).save().then(function(site){
 //    console.log("Save site: " + site.server)
 //}).catch(function(err){
 //    console.log("******* ERROR ******* " + err)
 //});
 //
-//db.Site.build({
+//db.Sites.build({
 //    server: "maple.eeng.dcu.ie",
 //    url: "http://gurutest.dcu.ie/gurutest",
-//    version: "1.0.69",
-//    environment: "Test"
+//    environment: "Test",
+//    status: "up"
 //}).save().then(function(site){
 //    console.log("Save site: " + site.server)
 //}).catch(function(err){
 //    console.log("******* ERROR ******* " + err)
 //});
 //
-//db.Site.build({
+//db.Sites.build({
 //    server: "dcuaws.amazon.com",
 //    url: "http://guru.dcu.ie",
-//    version: "1.0.60",
-//    environment: "DCU Production"
+//    environment: "Production",
+//    status: "up"
 //}).save().then(function(site){
 //    console.log("Save site: " + site.server)
 //}).catch(function(err){
 //    console.log("******* ERROR ******* " + err)
 //});
 //
-//db.Site.build({
+//db.Sites.build({
 //    server: "mitaws.amazon.com",
 //    url: "http://guru.gmit.ie",
-//    version: "1.0.60",
-//    environment: "GMIT Production"
+//    environment: "Production",
+//    status: "Up"
 //}).save().then(function(site){
 //    console.log("Save site: " + site.server)
 //}).catch(function(err){

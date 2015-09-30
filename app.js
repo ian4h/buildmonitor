@@ -68,21 +68,14 @@ app.use(function(req,res,next){
   next();
 });
 
-//model.User.create({
-//    username: 'admin',
-//    password: 'password'
-//}).then(function(user){
-//    console.log("************* THE NEW USER SHOULD BE CREATED WITH USERNAME >>?  " + user.username);
-//});
-
 var initPassport = require('./passport/init');
 initPassport(passport);
 var checkAuthenticated = require('./passport/checkAuthenticated');
 app.use(checkAuthenticated);
 
 //initiate job
-//var job = require('./jobs/sniffer')
-//job.start();
+var job = require('./jobs/sniffer')
+job.start();
 
 var flash = require('connect-flash');
 app.use(flash());

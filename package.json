@@ -19,6 +19,7 @@
     "nodemon": "~1.5.1",
     "passport": "^0.3.0",
     "passport-local": "^1.0.0",
+    "request": "^2.64.0",
     "sequelize": "^3.9.0",
     "serve-favicon": "~2.3.0"
   }

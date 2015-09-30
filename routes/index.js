@@ -16,7 +16,7 @@ router.get('/', function(req, res, next) {
   //passport.authenticate('local', {failureRedirect: '/login'})
   //console.log("user >> " + req.user);
   console.log("NEw data *********************")
-    model.Site.findAll().then(function(sites){
+    model.Sites.findAll().then(function(sites){
         res.render('index', {
             title: 'Express',
             message: req.flash('message'),

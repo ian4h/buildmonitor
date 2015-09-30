@@ -5,26 +5,27 @@
 
 module.exports = function(sequelize, DataTypes){
 
-    var Site = sequelize.define('Site', {
+    var Sites = sequelize.define('Sites', {
         server: {
             type: DataTypes.STRING
         },
         url: {
             type: DataTypes.STRING,
-        },
-        version: {
-            type: DataTypes.STRING
+            unique: true
         },
         environment: {
+            type: DataTypes.STRING
+        },
+        status : {
             type: DataTypes.STRING
         }
     }, {
         classMethods: {
             associate: function(model){
-                Site.hasMany(model.Stats)
+                Sites.hasMany(model.Stats)
             }
         }
     });
 
-    return Site
+    return Sites
 }
