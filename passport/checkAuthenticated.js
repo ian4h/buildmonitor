@@ -2,6 +2,7 @@
  * Created by Ian on 30/09/2015.
  */
 
+    //TODO this whole method is probably unnecessary
 var checkAuthenticated = function(request){
     if(request.isAuthenticated()){
         return true
@@ -28,4 +29,4 @@ module.exports = function(req, res, next){
             res.redirect('/login');
         }
     }
-}
+};
