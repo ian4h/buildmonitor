@@ -73,6 +73,7 @@ app.use(flash());
 
 app.use('/', routes);
 app.use('/users', users);
+app.use('/sites', sites);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
