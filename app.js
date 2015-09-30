@@ -9,6 +9,7 @@ var LocalStrategy = require('passport-local').Strategy;
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
+var sites = require('./routes/sites');
 
 //orm database setup
 //var sequelize = new Sequelize('buildmonitordb', 'admin', 'password',{
@@ -61,12 +62,27 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 var model = require('./models');
+app.use(function(req,res,next){
+  req.model = model;
+    console.log("Middleware for adding the model to the request");
+  next();
+});
+
+//model.User.create({
+//    username: 'admin',
+//    password: 'password'
+//}).then(function(user){
+//    console.log("************* THE NEW USER SHOULD BE CREATED WITH USERNAME >>?  " + user.username);
+//});
+
 var initPassport = require('./passport/init');
 initPassport(passport);
+var checkAuthenticated = require('./passport/checkAuthenticated');
+app.use(checkAuthenticated);
 
 //initiate job
-var job = require('./jobs/sniffer')
-job.start();
+//var job = require('./jobs/sniffer')
+//job.start();
 
 var flash = require('connect-flash');
 app.use(flash());

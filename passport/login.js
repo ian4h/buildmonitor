@@ -10,7 +10,7 @@ module.exports = (function(passport){
             passReqToCallback : true
         },
         function(req, username, password, done) {
-            model.User.findOne({where: {userName: username, password: password}}).then(function(user){
+            model.User.findOne({where: {username: username, password: password}}).then(function(user){
                 if(!user){
                     console.log("ERROR >> User not found " + username)
                     return done(null, false, req.flash('message', 'User not found'))

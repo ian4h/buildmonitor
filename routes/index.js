@@ -12,7 +12,7 @@ var isAuthenticated = function(req, res, next){
 }
 
 /* GET home page. */
-router.get('/', isAuthenticated, function(req, res, next) {
+router.get('/', function(req, res, next) {
   //passport.authenticate('local', {failureRedirect: '/login'})
   //console.log("user >> " + req.user);
   console.log("NEw data *********************")
