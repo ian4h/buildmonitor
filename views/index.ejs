@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html>
+<html lang="en" ng-app="siteControllers">
   <head>
     <title><%= title %></title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
   </head>
-  <body>
+  <body ng-controller="SiteListCtrl">
     <% include ./header%>
 
     <h2>Main application page</h2>
@@ -19,5 +19,45 @@
       </ul>
     <% } %>
 
+  <div class="container-fluid">
+      <div class="row">
+          <div class="col-md-2">
+              search bar
+          </div>
+          <div class="col-md-10">
+              <table>
+                  <tr>
+                      <th ng-repeat="(key, value) in site">
+                          {{key}}
+                      </th>
+                  </tr>
+                  <tr ng-repeat="site in sites">
+                      <td ng-repeat="info in site">{{info}}</td>
+                  </tr>
+              </table>
+              <ul class="sites">
+                  <li ng-repeat="site in sites" class="thumbnail">
+                      <p>{{site.url}}</p>
+                  </li>
+              </ul>
+          </div>
+      </div>
+  </div>
+
+
   </body>
 </html>
+
+<script>
+  var siteControllers = angular.module('siteControllers', []);
+
+  siteControllers.controller("SiteListCtrl", ['$scope', '$http',
+    function($scope, $http){
+      $http.get('/sites').success(function(data){
+        $scope.sites = data;
+          console.log("SITES >> " + JSON.stringify(data))
+          $scope.site = $scope.sites[0];
+          console.log("SITE  >> " + JSON.stringify($scope.site))
+        });
+    }]);
+</script>
