@@ -1,0 +1,36 @@
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+            <h2>Stats for site {{siteId}} </h2>
+            <h3>table goes here</h3>
+            <!--<p>{{stats}}</p>-->
+            <table class="table table-bordered table-striped table-hover">
+                <tr>
+                    <th ng-repeat="(key, value) in stats[0]" ng-if="(key != 'createdAt') && (key !=  'updatedAt')">
+                        {{key}}
+                    </th>
+                </tr>
+                <tr ng-repeat="stat in stats">
+                    <td>{{ stat.id }}</td>
+                    <td>{{ stat.time | date}}</td>
+                    <td>{{ stat.version}}</td>
+                    <td>{{ stat.status }}</td>
+                    <td>{{ stat.sourceBuildNumber }}</td>
+                    <td>{{ stat.buildNumber }}</td>
+                    <td>{{ stat.buildId }}</td>
+                    <td>{{ stat.buildTag }}</td>
+                    <td>{{ stat.gitCommit }}</td>
+                    <td>{{ stat.gitBranch }}</td>
+                    <td>{{ stat.buildTime | date }}</td>
+                    <td>{{ stat.environment }}</td>
+                    <td>{{ stat.appVersion }}</td>
+                    <td>{{ stat.javaVersion }}</td>
+                    <td>{{ stat.SiteId }}</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
+
+

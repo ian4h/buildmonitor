@@ -11,4 +11,25 @@
 ////        console.log("ROUTEPROVIDERCONFIG");
 ////    }
 ////]);
+var buildMonitorApp = angular.module('buildMonitorApp', [
+    'ngRoute',
+    'siteControllers'
+]);
+
+buildMonitorApp.config(['$routeProvider',
+    function($routeProvider){
+        $routeProvider.
+            when('/sites', {
+                templateUrl: 'partials/site-list.html',
+                controller: 'SiteListCtrl'
+            }).
+            when('/sites/:siteId',{
+                templateUrl: 'partials/stats-view.html',
+                controller: 'SiteDetailCtrl'
+            }).
+            otherwise({
+                redirectTo: '/sites'
+            });
+    }
+]);
 

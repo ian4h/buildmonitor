@@ -75,7 +75,7 @@ var checkAuthenticated = require('./passport/checkAuthenticated');
 app.use(checkAuthenticated);
 
 //initiate job
-var job = require('./jobs/sniffer')
+var job = require('./jobs/site-scanner')
 job.start();
 
 var flash = require('connect-flash');

@@ -1,0 +1,49 @@
+<!--<%if(sites){ %>-->
+<!--<h3>Guru Instances: </h3>-->
+<!--<ul>-->
+<!--<% for(var i=0; i<sites.length; i++) { %>-->
+<!--<li>-->
+<!--<%= sites[i].server %> <%=sites[i].url%> <%=sites[i].version%> <%= sites[i].environment %>-->
+<!--</li>-->
+<!--<% } %>-->
+<!--</ul>-->
+<!--<% } %>-->
+
+<div class="container">
+    <div class="row">
+        <!--<div class="col-md-2">-->
+        <!--search bar-->
+        <!--</div>-->
+        <div class="col-md-12">
+            <h2>Main application page</h2>
+            Search: <input ng-model="query">
+            Sort By:
+            <select ng-model="order">
+                <option selected value="id">ID</option>
+                <option value="-id">ID Desc</option>
+                <option value="-status">Status (Up First)</option>
+                <option value="dateCreated">Date Created</option>
+                <option value="environment">Environment Asc</option>
+                <option value="-environment">Environment Desc</option>
+            </select>
+            <table class="table table-bordered table-striped table-hover">
+                <tr>
+                    <th ng-repeat="(key, value) in site">
+                        {{key}}
+                    </th>
+                </tr>
+                <tr ng-repeat="inst in sites | filter:query | orderBy:order" ng-click="goTo(inst.id)" class="clickable">
+                    <!--{{test}}-->
+                    <!--<td ng-repeat="info in test">{{info | date}}</td>-->
+                    <td>{{inst.id}}</td>
+                    <td>{{inst.server}}</td>
+                    <td>{{inst.url}}</td>
+                    <td>{{inst.environment}}</td>
+                    <td>{{ inst.status }}</td>
+                    <td>{{inst.createdAt | date}}</td>
+                    <td>{{inst.updatedAt | date}}</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>

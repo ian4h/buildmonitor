@@ -1,10 +1,17 @@
 <% include header%>
 
-<form method="post" action="/login">
-    <input type="text" name="username" required>
-    <input type="password" name="password" required>
-    <button type="submit"></button>
-</form>
-<% if(message) {%>
-<h2><%=message%>%></h2>
-<%}%>
+
+<div class="container-fluid">
+    <div class="col-md-4"></div>
+    <div class="col-md-4">
+        <form method="post" action="/login">
+            <input type="text" name="username" required>
+            <input type="password" name="password" required>
+            <button type="submit">Login</button>
+        </form>
+        <% if(message) {%>
+        <h2><%=message%>%></h2>
+        <%}%>
+    </div>
+    <div class="col-md-4"></div>
+</div>

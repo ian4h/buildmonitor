@@ -9,3 +9,22 @@ body {
 a {
   color: #00B7FF;
 }
+
+.app-header {
+    display: inline-block;
+    text-align: center;
+}
+
+.app-header img{
+    display: inline-block;
+    /*float: left;*/
+}
+
+.app-header h1 {
+    display: inline-block;
+    text-align: center;
+}
+
+.clickable {
+    cursor: pointer;
+}

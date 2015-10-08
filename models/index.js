@@ -60,7 +60,6 @@ Object.keys(db).forEach(function(modelName) {
 });
 
 db.sequelize = sequelize;
-db.Sequelize = Sequelize;
 
 //bootstrap some data
 //sequelize.sync({force: true})
@@ -69,22 +68,11 @@ db.Sequelize = Sequelize;
 //    password: 'password'
 //}).then(function(user){
 //    console.log("User Created >> " + user.username)
-//})
-//
-//db.Sites.build({
-//    server: "maple.eeng.dcu.ie",
-//    url: "http://gurudev.dcu.ie/guru",
-//    environment: "Development",
-//    status: "up"
-//}).save().then(function(site){
-//    console.log("Save site: " + site.server)
-//}).catch(function(err){
-//    console.log("******* ERROR ******* " + err)
 //});
 //
 //db.Sites.build({
 //    server: "maple.eeng.dcu.ie",
-//    url: "http://gurutest.dcu.ie/gurutest",
+//    url: "http://gurutest.dcu.ie",
 //    environment: "Test",
 //    status: "up"
 //}).save().then(function(site){
@@ -94,9 +82,20 @@ db.Sequelize = Sequelize;
 //});
 //
 //db.Sites.build({
-//    server: "dcuaws.amazon.com",
-//    url: "http://guru.dcu.ie",
+//    server: "maple.eeng.dcu.ie",
+//    url: "http://guru.eeng.dcu.ie/guru",
 //    environment: "Production",
+//    status: "up"
+//}).save().then(function(site){
+//    console.log("Save site: " + site.server)
+//}).catch(function(err){
+//    console.log("******* ERROR ******* " + err)
+//});
+//
+//db.Sites.build({
+//    server: "dcuaws.amazon.com",
+//    url: "http://gurutest.gmit.ie",
+//    environment: "Test",
 //    status: "up"
 //}).save().then(function(site){
 //    console.log("Save site: " + site.server)
